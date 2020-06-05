@@ -1,38 +1,239 @@
+* {
+  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+header {
+  background-color: hsl(180, 29%, 50%);
+  background-image: url(/images/bg-header-desktop.svg);
+  height: 150px;
+}
+
+body {
+  background-color: hsl(180, 52%, 96%);
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
+}
+
 .App {
+  margin: auto;
+  max-width: 1440px;
+}
+
+.job-filter {
+  position: absolute;
+  top: 87px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.job-filter span {
+  padding: 0 0 0 10px;
+  margin: 10px;
+}
+
+.job-filter span:hover {
+  background-color: hsl(180, 31%, 95%);
+  color: hsl(180, 29%, 50%);
+}
+
+.job-filter button {
+  float: right;
+  color: hsl(180, 8%, 52%);
+  font-weight: 700;
+  padding: 15px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.job-filter button:hover {
+  text-decoration: underline;
+  color: hsl(180, 29%, 50%);
+}
+
+.close {
+  background-color: hsl(180, 29%, 50%);
+  padding: 10px;
+  margin-left: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  vertical-align: middle;
+}
+
+.close:hover {
+  background-color: hsl(180, 14%, 20%);
+}
+
+.box {
+  background-color: white;
+  margin: 25px auto;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px hsl(180, 29%, 80%);
+  padding: 12px;
+  width: 90%;
+  max-width: 1110px;
+}
+
+.box > * {
+  margin: auto 0;
+}
+
+.jobs {
+  margin-top: 82px;
+}
+
+.job {
+  grid-template-columns: 128px 2fr 3fr;
+  display: grid;
+}
+
+.featured {
+  border-left: 5px solid hsl(180, 29%, 50%);
+}
+
+.job h2 {
+  cursor: pointer;
+  color: hsl(180, 14%, 20%);
+  font-size: 1.2em;
+}
+
+.job h2:hover {
+  color: hsl(180, 29%, 50%);
+}
+
+.job p {
+  color: hsl(180, 8%, 52%);
+  font-size: 1em;
+}
+
+.job p span {
+  font-size: 0.9em;
+  padding: 0 10px;
+}
+
+.job img {
+  padding: 20px;
+}
+
+.tablet-container {
+  display: block;
+  text-align: right;
+}
+
+.tablet {
+  background-color: hsl(180, 31%, 95%);
+  border-radius: 5px;
+  padding: 10px;
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.tablet:hover {
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 31%, 95%);
+}
+
+.pin {
+  color: hsl(180, 31%, 95%);
+  border-radius: 10em;
+  font-size: 0.7em;
+  padding: 0.7em;
+  cursor: auto;
+  margin: 5px;
+  font-weight: 700;
+}
+
+.feature:hover {
+  background-color: hsl(180, 14%, 20%);
+}
+
+.new {
+  background-color: hsl(180, 29%, 50%);
+}
+
+.feature {
+  background-color: hsl(180, 14%, 20%);
+}
+
+.company {
+  color: hsl(180, 29%, 50%);
+  background: none;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.attribution {
+  font-size: 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 830px) {
+  * {
+    font-size: 0.9rem;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  header {
+    background-image: url(/images/bg-header-mobile.svg);
   }
-  to {
-    transform: rotate(360deg);
+
+  .job {
+    grid-template-columns: none;
+    grid-template-rows: 40px 1fr 1fr;
+    padding-left: 0px;
+    margin-bottom: 60px;
+  }
+
+  .job > * {
+    margin: 0 20px;
+  }
+
+  .job img {
+    transform: translateY(-35px);
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .job .tablet {
+    float: left;
+    margin: 10px 15px 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .tablet-container {
+    padding-left: 0;
+    border-top: 1px solid hsl(180, 8%, 52%);
+  }
+
+  .App {
+    transform: translateY(-60px);
+  }
+
+  .jobs {
+    margin-top: 130px;
+  }
+
+  .job-filter {
+    position: static;
+    margin-bottom: -60px;
   }
 }
